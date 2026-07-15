@@ -1,0 +1,23 @@
+# Runtime outputs
+results/
+logs/
+*.log
+*.out
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Model/data caches
+.cache/
+*.pt
+*.pth
+*.ckpt
+checkpoints/
+
+# Local environment
+.env
+.DS_Store
