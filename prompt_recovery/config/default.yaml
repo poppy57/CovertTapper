@@ -1,0 +1,30 @@
+# Default configuration file
+# Prompt Inversion via Hidden State Matching
+
+model:
+  name: llama2-7b           # Model: llama2-7b, llama2-13b, llama3-8b, vicuna-7b, mistral-7b
+  target_layer: -1          # layer (-1 = layer)
+  torch_dtype: float16      # data type
+
+search:
+  K_prior: 1000             # language-prior candidate pool size
+  K_embed: 500              # embedding-similarity candidate pool size (0 = disabled)
+  beam_size: 1              # Beam  (1 = greedy search)
+  lambda_prior: 0           # language-prior weight
+  coldstart_batch_size: 4096  # cold startbatch size (A100 80GB)
+  candidate_batch_size: 2048  # batch size (with KV cache)
+
+data:
+  dataset: skytrax          # Dataset: skytrax, wikitext, custom
+  max_samples: null         # Sample (null = all)
+  max_length: null          # maximum token length (null = unlimited)
+  text_column: content      # text column name
+
+experiment:
+  name: prompt_inversion
+  output_dir: results
+  log_dir: logs
+  log_level: INFO
+  save_detailed_results: true
+  seed: 42
+
